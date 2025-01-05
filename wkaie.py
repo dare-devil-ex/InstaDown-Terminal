@@ -110,7 +110,8 @@ def worker():
         holder.clear()
     else:
         wkaie("cls")
-        print("Only Instagram links\nCheck the link again")
+        print("Only Instagram links\nCheck the link again", w)
+        exit(0)
 
 try:
     wkaie("cls")
