@@ -4,6 +4,7 @@ try:
     from datetime import datetime as dt
     import re
     from wget import download as dl
+    from time import sleep
     from colorama import Fore
     from os import system as wkaie
     from webbrowser import open as o
@@ -21,7 +22,7 @@ w = Fore.WHITE
 r = Fore.RED
 p = Fore.MAGENTA
 
-clock = dt.now().strftime("(%Y | %b | %a)[%I:%M:%p]\t\t")
+clock = dt.now().strftime("%I%M%S%f")
 ddex = cloudscraper.create_scraper()
 holder = []
     
@@ -71,7 +72,7 @@ class Wkaie:
         except Exception as e:
             conn = 1
             print("Error:", e)
-            
+        
     def Process(_url):
         global msg
         msg = 0
@@ -84,9 +85,7 @@ class Wkaie:
                 if re.findall("/p/", _url):
                     msg = 2
                     process = str(_url.split("/p/")[1]).split("/")[0]
-                    Wkaie.downPost(process)
-                
-                
+                    Wkaie.downPost(process)                
             else:
                 msg = 0
         except Exception as e:
@@ -96,20 +95,26 @@ def worker():
     if msg == 1:
         print("{}Video Url: {}{}{}\n".format(g, c, vid, w))
         print("{}Cover: {}{}{}".format(g, c, cover, w))
+        o(cover)
+        sleep(1)
+        o(vid)
     elif msg == 2:
         for count, Purl in enumerate(holder, start=1):
             print("{}Post {}{}{}: {}{}{}".format(w, b, count, w, y, Purl, w))
+            o(Purl)
+            sleep(0.7)
             print()
         holder.clear()
     else:
         wkaie("cls")
         print("Only Instagram links\nCheck the link again")
 
-wkaie("cls")
 try:
-    Wkaie.banner()
-    Wkaie.Process(input(f"Enter the url: {p}"))
-    worker()
+    wkaie("cls")
+    while True:
+        Wkaie.banner()
+        Wkaie.Process(input(f"Enter the url: {p}"))
+        worker()
 except KeyboardInterrupt:
     wkaie("cls")
     print(r, "Program exited")
