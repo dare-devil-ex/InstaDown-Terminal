@@ -1,3 +1,6 @@
+# Author: @dare-devil-ex
+# Reminder: Changing credits doesn't make you a programmer ;)
+
 try:
     from bs4 import BeautifulSoup as bs
     import cloudscraper
