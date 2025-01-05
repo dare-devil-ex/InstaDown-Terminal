@@ -2,7 +2,9 @@
 
 This is **Instagram downloader** terminal version
 this the next level of the **webscrape**
+
 You can also check out my telegram [@wkan_bot](https://t.me/wkan_bot)
+
 Bot [documentation](https://github.com/dare-devil-ex/InstagramDown/blob/main/README.md)
 
 ## Features

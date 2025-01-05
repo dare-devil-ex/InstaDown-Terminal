@@ -4,8 +4,9 @@ try:
     from datetime import datetime as dt
     import re
     from random import choice
-    from colorama import Fore, Back
+    from colorama import Fore
     from os import system as wkaie
+    from webbrowser import open as o
 except:
     wkaie("pip install colorama")
     wkaie("pip install cloudscraper")
@@ -15,7 +16,9 @@ except:
 g = Fore.GREEN
 c = Fore.CYAN
 b = Fore.BLUE
+y = Fore.YELLOW
 w = Fore.WHITE
+r = Fore.RED
 p = Fore.MAGENTA
 
 clock = dt.now().strftime("(%Y | %b | %a)[%I:%M:%p]\t\t")
@@ -23,12 +26,11 @@ ddex = cloudscraper.create_scraper()
 holder = []
 
 def banner():
-    color = [g, c, p, b, w]
     banner = """░█──░█ ░█─▄▀ ─█▀▀█ ▀█▀ ░█▀▀▀ 
-    ░█░█░█ ░█▀▄─ ░█▄▄█ ░█─ ░█▀▀▀ 
-    ░█▄▀▄█ ░█─░█ ░█─░█ ▄█▄ ░█▄▄▄"""
+░█░█░█ ░█▀▄─ ░█▄▄█ ░█─ ░█▀▀▀ 
+░█▄▀▄█ ░█─░█ ░█─░█ ▄█▄ ░█▄▄▄"""
     
-    print()
+    print(banner, "\n\n")
     
 class Wkaie:
     def downReel(key):
@@ -96,16 +98,23 @@ class Wkaie:
 def worker():
     if msg == 1:
         print("{}Video Url: {}{}{}\n".format(g, c, vid, w))
-        print("Cover: {}".format(cover))
+        print("{}Cover: {}{}{}".format(g, c, cover, w))
     elif msg == 2:
-        for c, Purl in enumerate(holder, start=1):
-            print("Post {}: {}\n".format(c, Purl))
+        for count, Purl in enumerate(holder, start=1):
+            print("{}Post {}{}{}: {}{}{}".format(g, b, count, w, y, Purl, w))
+            print()
         holder.clear()
     else:
         wkaie("cls")
         print("Only Instagram links\nCheck the link again")
 
 wkaie("cls")
-banner()
-Wkaie.Process(input("Enter the url: "))
-worker()
+try:
+    banner()
+    Wkaie.Process(input("Enter the url: "))
+    worker()
+except KeyboardInterrupt:
+    wkaie("cls")
+    print(r, "Program exited")
+    print(c, "Author:", g, "@dare-devil-ex\n", w)
+    o("https://github.com/dare-devil-ex")
