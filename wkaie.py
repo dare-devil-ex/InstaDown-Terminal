@@ -3,7 +3,7 @@ try:
     import cloudscraper
     from datetime import datetime as dt
     import re
-    from random import choice
+    from wget import download as dl
     from colorama import Fore
     from os import system as wkaie
     from webbrowser import open as o
@@ -24,15 +24,12 @@ p = Fore.MAGENTA
 clock = dt.now().strftime("(%Y | %b | %a)[%I:%M:%p]\t\t")
 ddex = cloudscraper.create_scraper()
 holder = []
-
-def banner():
-    banner = """░█──░█ ░█─▄▀ ─█▀▀█ ▀█▀ ░█▀▀▀ 
-░█░█░█ ░█▀▄─ ░█▄▄█ ░█─ ░█▀▀▀ 
-░█▄▀▄█ ░█─░█ ░█─░█ ▄█▄ ░█▄▄▄"""
-    
-    print(banner, "\n\n")
     
 class Wkaie:
+    def banner():
+        banner = """░█──░█ ░█─▄▀ ─█▀▀█ ▀█▀ ░█▀▀▀ \n░█░█░█ ░█▀▄─ ░█▄▄█ ░█─ ░█▀▀▀ \n░█▄▀▄█ ░█─░█ ░█─░█ ▄█▄ ░█▄▄▄"""
+        print(banner, "\n\n")
+    
     def downReel(key):
         global vid, cover, conn
         conn = 0
@@ -74,7 +71,7 @@ class Wkaie:
         except Exception as e:
             conn = 1
             print("Error:", e)
-
+            
     def Process(_url):
         global msg
         msg = 0
@@ -101,7 +98,7 @@ def worker():
         print("{}Cover: {}{}{}".format(g, c, cover, w))
     elif msg == 2:
         for count, Purl in enumerate(holder, start=1):
-            print("{}Post {}{}{}: {}{}{}".format(g, b, count, w, y, Purl, w))
+            print("{}Post {}{}{}: {}{}{}".format(w, b, count, w, y, Purl, w))
             print()
         holder.clear()
     else:
@@ -110,8 +107,8 @@ def worker():
 
 wkaie("cls")
 try:
-    banner()
-    Wkaie.Process(input("Enter the url: "))
+    Wkaie.banner()
+    Wkaie.Process(input(f"Enter the url: {p}"))
     worker()
 except KeyboardInterrupt:
     wkaie("cls")
