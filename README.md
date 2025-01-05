@@ -11,10 +11,14 @@ Bot [documentation](https://github.com/dare-devil-ex/InstagramDown/blob/main/REA
 - Prompt is not necessary for random images
 
 # Installation Command
+- Mannual
 ```pip
 pip install -r requirements.txt
 ```
-
+- Automatic
+```python
+python wkaie.py
+```
 # Run Command
 ```python
 python wkaie.py
