@@ -10,7 +10,6 @@ Bot [documentation](https://github.com/dare-devil-ex/InstagramDown/blob/main/REA
 ## Features
 
 - It can download instagram **reels** & **posts** core code of the [@wkan_bot](https://t.me/wkan_bot)
-- Prompt is not necessary for random images
 
 # Installation Command
 - Mannual
